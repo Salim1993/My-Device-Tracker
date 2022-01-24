@@ -1,25 +1,20 @@
 package com.salim.mydevicetracker.devices
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
-@JsonClass(generateAdapter = true)
+@Entity(tableName = "Devices")
 data class Devices(
-    @Json(name = "Currency")
     val currency: String,
-    @Json(name = "Description")
     val description: String,
-    @Json(name = "Id")
+    @PrimaryKey
     val id: String,
-    @Json(name = "imageUrl")
     val imageUrl: String,
-    @Json(name = "isFavorite")
     val isFavorite: Boolean,
-    @Json(name = "Price")
     val price: Int,
-    @Json(name = "Title")
     val title: String,
-    @Json(name = "Type")
     val type: String
 )
