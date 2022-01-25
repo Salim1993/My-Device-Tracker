@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface DevicesDao {
@@ -12,5 +13,5 @@ interface DevicesDao {
     fun insertAllDevices(list: List<Devices>)
 
     @Query("SELECT * FROM Devices")
-    fun getAllDevices(): List<Devices>
+    fun getAllDevices(): Flow<List<Devices>>
 }

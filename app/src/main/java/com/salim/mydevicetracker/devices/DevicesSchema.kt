@@ -25,19 +25,17 @@ data class DevicesSchema(
     val title: String,
     @Json(name = "Type")
     val type: String
-) {
-    companion object {
-        fun convertToDevice(devicesSchema: DevicesSchema): Devices {
-            return Devices(
-                currency = devicesSchema.currency,
-                description = devicesSchema.description,
-                id = devicesSchema.id,
-                imageUrl = devicesSchema.imageUrl,
-                isFavorite = devicesSchema.isFavorite,
-                price = devicesSchema.price,
-                title = devicesSchema.title,
-                type = devicesSchema.type
-            )
-        }
-    }
+)
+
+fun DevicesSchema.convertToDevice(): Devices {
+    return Devices(
+        currency = currency,
+        description = description,
+        id = id,
+        imageUrl = imageUrl,
+        isFavorite = isFavorite,
+        price = price,
+        title = title,
+        type = type
+    )
 }
