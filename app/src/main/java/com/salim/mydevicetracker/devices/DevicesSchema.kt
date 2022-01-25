@@ -24,7 +24,9 @@ data class DevicesSchema(
     @Json(name = "Title")
     val title: String,
     @Json(name = "Type")
-    val type: String
+    val type: String,
+    @Json(name = "IsOnline")
+    val isOnline: Boolean
 )
 
 fun DevicesSchema.convertToDevice(): Devices {
@@ -36,6 +38,7 @@ fun DevicesSchema.convertToDevice(): Devices {
         isFavorite = isFavorite,
         price = price,
         title = title,
-        type = type
+        type = type,
+        isOnline = isOnline
     )
 }

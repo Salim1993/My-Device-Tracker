@@ -16,5 +16,11 @@ data class Devices(
     val isFavorite: Boolean,
     val price: Int,
     val title: String,
-    val type: String
+    val type: String,
+    val isOnline: Boolean
 )
+
+fun Devices.contains(regex: String): Boolean {
+    return title.contains(regex, true) || description.contains(regex, true)
+            || type.contains(regex, true)
+}
