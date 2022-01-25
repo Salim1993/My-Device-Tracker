@@ -34,7 +34,11 @@ class GetDeviceListUseCase @Inject constructor(
         } catch (e: UnknownHostException) {
             //cant connect to host
             Timber.e("Got UnknownHostException. Could not connect to host.")
-            return NetworkResult(NetworkStatus.FAILURE, "Could not connect to host.")
+            return NetworkResult(NetworkStatus.FAILURE, NO_HOST_CONNECTION_MESSAGE)
         }
+    }
+
+    companion object {
+        const val NO_HOST_CONNECTION_MESSAGE = "Could not connect to host."
     }
 }

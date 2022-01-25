@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 interface DevicesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAllDevices(list: List<Devices>)
+    suspend fun insertAllDevices(list: List<Devices>)
 
     @Query("SELECT * FROM Devices")
     fun getAllDevices(): Flow<List<Devices>>
