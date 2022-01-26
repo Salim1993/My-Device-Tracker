@@ -9,17 +9,29 @@
         android:id="@+id/nav_home"
         android:name="com.salim.mydevicetracker.deviceList.DevicesListFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/devices_list_fragment" />
+        tools:layout="@layout/devices_list_fragment" >
+        <action
+            android:id="@+id/action_nav_home_to_deviceDetailsFragment"
+            app:destination="@id/deviceDetailsFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_settingsFragment"
+            app:destination="@id/nav_settings" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.salim.mydevicetracker.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
+        android:id="@+id/deviceDetailsFragment"
+        android:name="com.salim.mydevicetracker.deviceDetails.DeviceDetailsFragment"
+        android:label="{device_name}"
+        tools:layout="@layout/device_details_fragment">
+        <argument
+            android:name="device"
+            app:argType="com.salim.mydevicetracker.devices.Devices" />
+        <argument
+            android:name="device_name"
+            app:argType="string" />
+    </fragment>
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.salim.mydevicetracker.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_settings"
+        android:name="com.salim.mydevicetracker.settings.SettingsFragment"
+        android:label="@string/menu_settings" />
 </navigation>

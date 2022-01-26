@@ -37,7 +37,7 @@ class FakeApiService: DeviceApiService {
                 "\"IsOnline\": false\n" +
                 "}, \n" +
                 "{\n" +
-                "\"Id\": \"1235\",\n" +
+                "\"Id\": \"1236\",\n" +
                 "\"Type\": \"Camera\",\n" +
                 "\"Price\": 25,\n" +
                 "\"Currency\": \"USD\",\n" +

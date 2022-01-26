@@ -18,8 +18,6 @@ class DevicesListViewModel @Inject constructor(
 
     val deviceListFlow = getDeviceListUseCase.getDeviceListFlow()
 
-    //var coroutineScope = coroutineScopeInject ?: viewModelScope
-
     private val _errorEvent = MutableStateFlow(ErrorEvent(""))
     val errorEvent = _errorEvent.asStateFlow()
 

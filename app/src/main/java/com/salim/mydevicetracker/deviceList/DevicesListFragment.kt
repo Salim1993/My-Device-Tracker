@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.salim.mydevicetracker.R
@@ -44,6 +45,7 @@ class DevicesListFragment : Fragment(R.layout.devices_list_fragment) {
     }
 
     private fun onDeviceItemClickListener(device: Devices) {
-
+        val action = DevicesListFragmentDirections.actionNavHomeToDeviceDetailsFragment(device, device.title)
+        findNavController().navigate(action)
     }
 }
