@@ -13,7 +13,5 @@ class FakeDevicesDao: DevicesDao {
         flow.emit(list)
     }
 
-    override fun getAllDevices(): Flow<List<Devices>> {
-        return flow
-    }
+    override fun getAllDevices(): Flow<List<Devices>> = flow
 }

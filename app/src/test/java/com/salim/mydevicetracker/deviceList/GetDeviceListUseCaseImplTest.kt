@@ -1,6 +1,6 @@
 package com.salim.mydevicetracker.deviceList
 
-import com.salim.mydevicetracker.deviceList.GetDeviceListUseCase.Companion.NO_HOST_CONNECTION_MESSAGE
+import com.salim.mydevicetracker.deviceList.GetDeviceListUseCaseImpl.Companion.NO_HOST_CONNECTION_MESSAGE
 import com.salim.mydevicetracker.devices.Devices
 import com.salim.mydevicetracker.fakes.FakeDevicesDao
 import com.salim.mydevicetracker.networking.DeviceApiService
@@ -17,7 +17,7 @@ import org.junit.Test
 import org.junit.Assert.*
 import java.net.UnknownHostException
 
-class GetDeviceListUseCaseTest {
+class GetDeviceListUseCaseImplTest {
 
     @MockK lateinit var deviceApiService: DeviceApiService
 
@@ -32,8 +32,8 @@ class GetDeviceListUseCaseTest {
         val fakeService = FakeApiService() //for this test will use data returned from the fake, other will be mocked
         val dao = FakeDevicesDao()
 
-        val testSubject = GetDeviceListUseCase(fakeService, dao)
-        val resultFlow = testSubject.deviceListFlow
+        val testSubject = GetDeviceListUseCaseImpl(fakeService, dao)
+        val resultFlow = testSubject.getDeviceListFlow()
 
         //act
         val resultStatus = runBlocking {
@@ -69,7 +69,7 @@ class GetDeviceListUseCaseTest {
         coEvery { deviceApiService.getListOfDevices() } throws UnknownHostException()
         val dao = FakeDevicesDao()
 
-        val testSubject = GetDeviceListUseCase(deviceApiService, dao)
+        val testSubject = GetDeviceListUseCaseImpl(deviceApiService, dao)
 
         //act
         val resultStatus = runBlocking {
