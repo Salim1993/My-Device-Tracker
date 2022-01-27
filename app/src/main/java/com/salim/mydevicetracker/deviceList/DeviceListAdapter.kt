@@ -6,7 +6,6 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.salim.mydevicetracker.databinding.DevicesListFragmentBinding
 import com.salim.mydevicetracker.databinding.DevicesListItemBinding
 import com.salim.mydevicetracker.devices.Devices
 import com.salim.mydevicetracker.devices.contains
@@ -44,7 +43,7 @@ class DeviceListAdapter(
     }
 
     private fun submitNewList(newList: List<Devices>) {
-        val diff = DiffUtil.calculateDiff(PokemonListDiffUtilCallback(filteredList, newList))
+        val diff = DiffUtil.calculateDiff(DeviceListDiffUtilCallback(filteredList, newList))
 
         filteredList = newList
         diff.dispatchUpdatesTo(this)
@@ -79,7 +78,7 @@ class DeviceListAdapter(
     inner class DevicesListItemViewHolder(val binding: DevicesListItemBinding)
         :RecyclerView.ViewHolder(binding.root)
 
-    class PokemonListDiffUtilCallback(private val oldList: List<Devices>, private val newList: List<Devices>)
+    class DeviceListDiffUtilCallback(private val oldList: List<Devices>, private val newList: List<Devices>)
         : DiffUtil.Callback() {
 
         override fun getOldListSize(): Int = oldList.size
